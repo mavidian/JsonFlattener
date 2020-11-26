@@ -103,13 +103,12 @@ namespace JsonFlattener
                   _keyPrefixes.Pop();
                   Debug.Assert(_keyPrefixes.Peek().IsLabel);
                   _keyPrefixes.Pop();
-                  //TODO: ?? increment ??
+                  IncrementCounterIfAnyOnTop();
                   break;
                default:
                   throw new InvalidDataException($"Unexpected JSON '{tokenType}' token with a value '{tokenValue}'.");
             }
          }
-         yield break;
       }
 
 
