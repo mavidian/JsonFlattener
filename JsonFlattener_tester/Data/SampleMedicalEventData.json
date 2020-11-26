@@ -1,0 +1,223 @@
+{
+  "MemberId": "MEM102",
+  "ClaimId": "CLM0002",
+  "DateReceived": "1/1/1753",
+  "MedicalData": {
+    "Diagnoses": [
+      {
+        "Diagnosis": "DX001",
+        "Primacy": 1
+      },
+      {
+        "Diagnosis": "DX007",
+        "Primacy": 77
+      },
+      {
+        "Diagnosis": "DX044",
+        "Primacy": 44
+      },
+      {
+        "Diagnosis": "DX111",
+        "Primacy": 111
+      },
+      {
+        "Diagnosis": "DX003",
+        "Primacy": 33
+      }
+    ],
+    "Actions": [
+      {
+        "ActionDate": "11/22/2020",
+        "ActionSequence": 5,
+        "ActionPlaces": [
+          {
+            "PosCode": "111",
+            "PosOrder": 111,
+            "Duration": 111.0
+          },
+          {
+            "PosCode": "11",
+            "PosOrder": 11,
+            "Duration": 11.0
+          },
+          {
+            "PosCode": "1",
+            "PosOrder": 1,
+            "Duration": 1.0
+          }
+        ],
+        "ActionCode": "<unknown action>",
+        "Providers": [
+          {
+            "ProviderId": "PROV042",
+            "Role": "Servicing",
+            "Units": 42.0
+          },
+          {
+            "ProviderId": "PROV002",
+            "Role": "Attending",
+            "Units": 3.5
+          },
+          {
+            "ProviderId": "PROV142",
+            "Role": "Servicing",
+            "Units": 1.0
+          },
+          {
+            "ProviderId": "PROV088",
+            "Role": "Referring",
+            "Units": 42.0
+          }
+        ]
+      },
+      {
+        "ActionDate": "4/14/2020",
+        "ActionSequence": 88,
+        "ActionPlaces": [
+          {
+            "PosCode": "1",
+            "PosOrder": 1,
+            "Duration": 1.0
+          }
+        ],
+        "ActionCode": "<unknown action>",
+        "Providers": [
+          {
+            "ProviderId": "PROV666",
+            "Role": "Unknown",
+            "Units": 42.0
+          }
+        ]
+      },
+      {
+        "ActionDate": "1/22/2020",
+        "ActionSequence": 45,
+        "ActionPlaces": [
+          {
+            "PosCode": "111",
+            "PosOrder": 1,
+            "Duration": 6.75
+          },
+          {
+            "PosCode": "11",
+            "PosOrder": 2,
+            "Duration": 1.0
+          },
+          {
+            "PosCode": "1",
+            "PosOrder": 3,
+            "Duration": 1.55
+          }
+        ],
+        "ActionCode": "<unknown action>",
+        "Providers": [
+          {
+            "ProviderId": "PROV042",
+            "Role": "Servicing",
+            "Units": 42.0
+          },
+          {
+            "ProviderId": "PROV002",
+            "Role": "Attending",
+            "Units": 3.5
+          },
+          {
+            "ProviderId": "PROV242",
+            "Role": "Attending",
+            "Units": 3.5
+          },
+          {
+            "ProviderId": "PROV088",
+            "Role": "Referring",
+            "Units": 42.0
+          }
+        ]
+      },
+      {
+        "ActionDate": "1/22/2019",
+        "ActionSequence": 514,
+        "ActionPlaces": [],
+        "ActionCode": "<unknown action>",
+        "Providers": [
+          {
+            "ProviderId": "PROV042",
+            "Role": "Servicing",
+            "Units": 42.0
+          },
+          {
+            "ProviderId": "PROV002",
+            "Role": "Attending",
+            "Units": 3.5
+          },
+          {
+            "ProviderId": "PROV142",
+            "Role": "Servicing",
+            "Units": 1.0
+          },
+          {
+            "ProviderId": "PROV088",
+            "Role": "Referring",
+            "Units": 42.0
+          }
+        ]
+      },
+      {
+        "ActionDate": "11/2/2020",
+        "ActionSequence": 1000,
+        "ActionPlaces": [
+          {
+            "PosCode": "111",
+            "PosOrder": 111,
+            "Duration": 111.0
+          },
+          {
+            "PosCode": "11",
+            "PosOrder": 11,
+            "Duration": 11.0
+          },
+          {
+            "PosCode": "1",
+            "PosOrder": 1,
+            "Duration": 1.0
+          }
+        ],
+        "ActionCode": "<unknown action>",
+        "Providers": []
+      },
+      {
+        "ActionDate": "10/22/2020",
+        "ActionSequence": 1,
+        "ActionPlaces": [
+          {
+            "PosCode": "11",
+            "PosOrder": 11,
+            "Duration": 11.0
+          },
+          {
+            "PosCode": "1",
+            "PosOrder": 1,
+            "Duration": 1.0
+          }
+        ],
+        "ActionCode": "<unknown action>",
+        "Providers": [
+          {
+            "ProviderId": "PROV052",
+            "Role": "Servicing",
+            "Units": 52.0
+          },
+          {
+            "ProviderId": "PROV002",
+            "Role": "Attending",
+            "Units": 3.5
+          },
+          {
+            "ProviderId": "PROV888",
+            "Role": "Referring",
+            "Units": 0.3
+          }
+        ]
+      }
+    ]
+  }
+}
