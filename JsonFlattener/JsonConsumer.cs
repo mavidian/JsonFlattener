@@ -7,7 +7,10 @@ using System.Linq;
 
 namespace JsonFlattener
 {
-   public class JsonFlattener : IDisposable
+   /// <summary>
+   /// A reader of JSON stream and converter into a sequence of (flattened) key value pairs, where keys are coumpound names representing JSON element hierarchy.
+   /// </summary>
+   public class JsonConsumer : IDisposable
    {
       private readonly JsonTextReader _jsonReader;
 
@@ -36,7 +39,7 @@ namespace JsonFlattener
       private string _LPN;  // last PropertyName
       private readonly LorC _emptyLabel = new LorC(string.Empty);  // part to ignore when building columns name from _keyPrefixes
 
-      public JsonFlattener(TextReader textReader)
+      public JsonConsumer(TextReader textReader)
       {
          _jsonReader = new JsonTextReader(textReader);
          _keyPrefixes = new Stack<LorC>();

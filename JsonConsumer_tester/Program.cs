@@ -1,8 +1,9 @@
-﻿using System;
+﻿using JsonFlattener;
+using System;
 using System.Diagnostics;
 using System.IO;
 
-namespace JsonFlattener_tester
+namespace JsonConsumer_tester
 {
    class Program
    {
@@ -23,13 +24,13 @@ namespace JsonFlattener_tester
          if (_outputToFile) Console.WriteLine($"KVP output file: {Path.GetFullPath(kvpOutput)}");
 
          using (var textReader = File.OpenText(jsonInput))
-         using (var flattener = new JsonFlattener.JsonFlattener(textReader))
+         using (var jsonConsumer = new JsonConsumer(textReader))
          using (var textWriter = File.CreateText(kvpOutput))
          {
 
             if (_outputToFile)
             {
-               foreach (var kvp in flattener.GetFlattenedData())
+               foreach (var kvp in jsonConsumer.GetFlattenedData())
                {
                   textWriter.WriteLine($"Key={kvp.Key}  Value={kvp.Value}");
                }
@@ -37,7 +38,7 @@ namespace JsonFlattener_tester
             else // step through generated JSON tokens
             {
                Console.WriteLine("Press a key to obtain next token..");
-               foreach (var token in flattener.GetJsonTokenData())
+               foreach (var token in jsonConsumer.GetJsonTokenData())
                {
                   Console.ReadKey(true);
                   Console.WriteLine($"  {token.Type,-16}{(token.Value == null ? string.Empty : token.Value)}");
