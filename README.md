@@ -1,5 +1,5 @@
 # JsonFlattener
-A class library to flatten JSON data into a set of key value pairs.
+A class library to convert JSON data to/from a flattened set of key value pairs.
 
 ## Installation
 
