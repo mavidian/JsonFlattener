@@ -1,0 +1,30 @@
+Key=01_NullValue  Value=
+Key=01_TrueValue  Value=True
+Key=01_FalseValue  Value=False
+Key=01_UndefinedValue  Value=
+Key=01_SimpleArray_01  Value=John
+Key=01_SimpleArray_02  Value=Anna
+Key=01_SimpleArray_03  Value=Peter
+Key=01_SimpleObject_name  Value=John
+Key=01_SimpleObject_age  Value=30
+Key=01_SimpleObject_city  Value=New York
+Key=01_ObjectInArray_01_name  Value=John
+Key=01_ObjectInArray_01_age  Value=30
+Key=01_ObjectInArray_01_city  Value=New York
+Key=01_ObjectInArray_02_name  Value=Sue
+Key=01_ObjectInArray_02_age  Value=20
+Key=01_ObjectInArray_02_city  Value=Chicago
+Key=01_ArrayInObject_InnerArray_01  Value=John
+Key=01_ArrayInObject_InnerArray_02  Value=Anna
+Key=01_ArrayInObject_InnerArray_03  Value=Peter
+Key=01_NestedObjects_InnerObject_InnerValue  Value=value
+Key=01_NestedArray_01_01  Value=a
+Key=01_NestedArray_01_02  Value=b
+Key=01_NestedArray_02_01  Value=x
+Key=01_NestedArray_02_02  Value=y
+Key=01_NestedArray_02_03  Value=z
+Key=01_ArrayWithManyTypes_01  Value=3
+Key=01_ArrayWithManyTypes_02  Value=StringHere
+Key=01_ArrayWithManyTypes_03_ObjectThere  Value=with this string
+Key=01_ArrayWithManyTypes_03_AndNumber  Value=42
+Key=01_ArrayWithManyTypes_04  Value=True
