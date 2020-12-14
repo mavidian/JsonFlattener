@@ -72,10 +72,16 @@ namespace JsonFlattener
       /// <param name="items">Key-value pairs where Key reflects path to JSON element using special convention (undersore-delimited hierarchy of element names or array names with indeces). Represents a single record.</param>
       public void WriteDataAsJson(IEnumerable<(string Key, object Value)> items)
       {
+         bool? isArray = null;
          var prevKey = new Stack<LorC>();
          prevKey.Push(new LorC("dummy")); //will get removed
          foreach (var item in items)
          {
+            if (isArray == null)
+            {
+               isArray = char.IsDigit(item.Key.First());
+               if ((bool)isArray) _jsonWriter.WriteStartArray(); else _jsonWriter.WriteStartObject();
+            }
             var segments = SplitColumnName(item.Key);
             var unchangedSegmentsCount = segments.Zip(prevKey.Reverse(), (f,s) => (Fst:f,Snd:s)).TakeWhile(t => t.Fst.Equals(t.Snd)).Count();
             while (prevKey.Count > unchangedSegmentsCount + 1)
@@ -102,6 +108,7 @@ namespace JsonFlattener
             }
             _jsonWriter.WriteValue(item.Value);
          }
+         if ((bool)isArray) _jsonWriter.WriteEndArray(); else _jsonWriter.WriteEndObject();
       }
 
 
