@@ -17,10 +17,14 @@ namespace JsonProducer_tester
 
       private static readonly bool _outputToFile = true;  // if false, parsed segments of input are displayed one by one in the console window
 
+
       static void Main(string[] args)
       {
          var kvpInput = $"..{sep}..{sep}..{sep}Data{sep}{_data}.kvp";
          var jsonOutput = $"{_data}.json";
+
+         Console.WriteLine($"KVP input file: {Path.GetFullPath(kvpInput)}");
+         if (_outputToFile) Console.WriteLine($"JSON output file: {Path.GetFullPath(jsonOutput)}");
 
          using (var textReader = File.OpenText(kvpInput))
          using (var textWriter = File.CreateText(jsonOutput))
