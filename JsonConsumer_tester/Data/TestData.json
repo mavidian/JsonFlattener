@@ -6,7 +6,7 @@
 	"SimpleArray": [ "John", "Anna", "Peter" ],
 	"SimpleObject": { "name": "John", "age": 30,"city": "New York" },
   "ObjectInArray": [ { "name": "John", "age": 30,"city": "New York" }, { "name": "Sue", "age": 20,"city": "Chicago" } ],
-	"ArrayInObject": { "NullValue": null, "InnerArray": [ "John", "Anna", "Peter" ], "city": "Chicago" },
+	"ArrayInObject": { "InnerArray": [ "John", "Anna", "Peter" ] },
 	"NestedObjects": { "InnerObject": {"InnerValue":  "value"} },
   "NestedArray": [ [ "a", "b"], [ "x", "y", "z"]],
   "ArrayWithManyTypes": [ 3, "StringHere", { "ObjectThere" : "with this string", "AndNumber":  42 }, true ]
