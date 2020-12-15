@@ -75,7 +75,7 @@ namespace JsonFlattener
          bool? isArray = null;
          var prevKey = new Stack<LorC>();
          prevKey.Push(new LorC("dummy")); //will get removed
-         foreach (var item in items)
+         foreach (var item in SortDataByKeyHierarchy(items))
          {
             if (isArray == null)
             {
@@ -83,7 +83,7 @@ namespace JsonFlattener
                if ((bool)isArray) _jsonWriter.WriteStartArray(); else _jsonWriter.WriteStartObject();
             }
             var segments = SplitColumnName(item.Key);
-            var unchangedSegmentsCount = segments.Zip(prevKey.Reverse(), (f,s) => (Fst:f,Snd:s)).TakeWhile(t => t.Fst.Equals(t.Snd)).Count();
+            var unchangedSegmentsCount = segments.Zip(prevKey.Reverse(), (f, s) => (Fst: f, Snd: s)).TakeWhile(t => t.Fst.Equals(t.Snd)).Count();
             while (prevKey.Count > unchangedSegmentsCount + 1)
             {
                var segment = prevKey.Pop();
@@ -108,7 +108,46 @@ namespace JsonFlattener
             }
             _jsonWriter.WriteValue(item.Value);
          }
-         if ((bool)isArray) _jsonWriter.WriteEndArray(); else _jsonWriter.WriteEndObject();
+         if (isArray != null)  // null if empty items
+         {
+            if ((bool)isArray) _jsonWriter.WriteEndArray();
+            else _jsonWriter.WriteEndObject();
+         }
+      }
+
+
+      /// <summary>
+      /// Sort data in a way to facilitate creation of nested JSON hierarchy.
+      /// All top key segments are groupped together (in order of first appearance), then 2nd key segments are groupped together, etc.
+      /// </summary>
+      /// <param name="items">A sequence of key value pairs where key is a compound column name.</param>
+      /// <returns>A sequence of sorted key value pairs.</returns>
+      public IEnumerable<(string Key, object Value)> SortDataByKeyHierarchy(IEnumerable<(string Key, object Value)> items)
+      {
+         var wrappedItems = items.Select(i => (Wrapper: i.Key.Split('_'), Item: i));  // Wrapper is an array of segments of the compound Key
+         return SortWrappedData(wrappedItems).Select(wi => wi.Item);
+      }
+
+
+      /// <summary>
+      /// Recursive method to sort wrapped items by the key segments.
+      /// Each iteration groups items by the next-level key segments and outputs those items that have no key segments left.
+      /// </summary>
+      /// <param name="wrappedItems"></param>
+      /// <returns></returns>
+      private IEnumerable<(string[] Wrapper, (string Key, object Value) Item)> SortWrappedData(IEnumerable<(string[] Wrapper, (string Key, object Value) Item)> wrappedItems)
+      {
+         var grouppedItems = wrappedItems.GroupBy(wi => wi.Wrapper[0]);
+         // Notice that segments are groupped in order of appearance. So, array elements are not sorted by index/counter.
+         foreach (var group in grouppedItems)
+         {
+            if (group.Count() == 1) yield return group.First();  // end of recursion (note that compound keys are assumed to be unique)
+            else
+            {  // remove top (groupped by) segment from the Wrapper when recursing
+               var innerGroup = group.Select(wi => (Wrapper: wi.Wrapper.Skip(1).ToArray(), Item: wi.Item));
+               foreach (var wi in SortWrappedData(innerGroup)) yield return wi;
+            }
+         }
       }
 
 
@@ -128,6 +167,7 @@ namespace JsonFlattener
                         : new LorC(item);  // label
          }
       }
+
 
       public void Dispose()
       {
