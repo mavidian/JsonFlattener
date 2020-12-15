@@ -2,11 +2,15 @@ Key=MemberId  Value=MEM102
 Key=ClaimId  Value=CLM0002
 Key=DateReceived  Value=1/1/1753
 Key=MedicalData_Diagnoses_01_Diagnosis  Value=DX001
+Key=MedicalData_Diagnoses_01_Primacy  Value=1
 Key=MedicalData_Diagnoses_02_Diagnosis  Value=DX007
 Key=MedicalData_Diagnoses_02_Primacy  Value=77
 Key=MedicalData_Diagnoses_03_Diagnosis  Value=DX044
 Key=MedicalData_Diagnoses_03_Primacy  Value=44
 Key=MedicalData_Diagnoses_04_Diagnosis  Value=DX111
+Key=MedicalData_Diagnoses_04_Primacy  Value=111
+Key=MedicalData_Diagnoses_05_Diagnosis  Value=DX003
+Key=MedicalData_Diagnoses_05_Primacy  Value=33
 Key=MedicalData_Actions_01_ActionDate  Value=11/22/2020
 Key=MedicalData_Actions_01_ActionSequence  Value=5
 Key=MedicalData_Actions_01_ActionPlaces_01_PosCode  Value=111
@@ -16,15 +20,21 @@ Key=MedicalData_Actions_01_ActionPlaces_02_PosCode  Value=11
 Key=MedicalData_Actions_01_ActionPlaces_02_PosOrder  Value=11
 Key=MedicalData_Actions_01_ActionPlaces_02_Duration  Value=11
 Key=MedicalData_Actions_01_ActionPlaces_03_PosCode  Value=1
+Key=MedicalData_Actions_01_ActionPlaces_03_PosOrder  Value=1
+Key=MedicalData_Actions_01_ActionPlaces_03_Duration  Value=1
+Key=MedicalData_Actions_01_ActionCode  Value=<unknown action>
 Key=MedicalData_Actions_01_Providers_01_ProviderId  Value=PROV042
 Key=MedicalData_Actions_01_Providers_01_Role  Value=Servicing
 Key=MedicalData_Actions_01_Providers_01_Units  Value=42
 Key=MedicalData_Actions_01_Providers_02_ProviderId  Value=PROV002
 Key=MedicalData_Actions_01_Providers_02_Role  Value=Attending
+Key=MedicalData_Actions_01_Providers_02_Units  Value=3.5
 Key=MedicalData_Actions_01_Providers_03_ProviderId  Value=PROV142
 Key=MedicalData_Actions_01_Providers_03_Role  Value=Servicing
 Key=MedicalData_Actions_01_Providers_03_Units  Value=1
 Key=MedicalData_Actions_01_Providers_04_ProviderId  Value=PROV088
+Key=MedicalData_Actions_01_Providers_04_Role  Value=Referring
+Key=MedicalData_Actions_01_Providers_04_Units  Value=42
 Key=MedicalData_Actions_02_ActionDate  Value=4/14/2020
 Key=MedicalData_Actions_02_ActionSequence  Value=88
 Key=MedicalData_Actions_02_ActionPlaces_01_PosCode  Value=1
@@ -33,6 +43,7 @@ Key=MedicalData_Actions_02_ActionPlaces_01_Duration  Value=1
 Key=MedicalData_Actions_02_ActionCode  Value=<unknown action>
 Key=MedicalData_Actions_02_Providers_01_ProviderId  Value=PROV666
 Key=MedicalData_Actions_02_Providers_01_Role  Value=Unknown
+Key=MedicalData_Actions_02_Providers_01_Units  Value=42
 Key=MedicalData_Actions_03_ActionDate  Value=1/22/2020
 Key=MedicalData_Actions_03_ActionSequence  Value=45
 Key=MedicalData_Actions_03_ActionPlaces_01_PosCode  Value=111
@@ -66,6 +77,9 @@ Key=MedicalData_Actions_04_Providers_01_Units  Value=42
 Key=MedicalData_Actions_04_Providers_02_ProviderId  Value=PROV002
 Key=MedicalData_Actions_04_Providers_02_Role  Value=Attending
 Key=MedicalData_Actions_04_Providers_02_Units  Value=3.5
+Key=MedicalData_Actions_04_Providers_03_ProviderId  Value=PROV142
+Key=MedicalData_Actions_04_Providers_03_Role  Value=Servicing
+Key=MedicalData_Actions_04_Providers_03_Units  Value=1
 Key=MedicalData_Actions_04_Providers_04_ProviderId  Value=PROV088
 Key=MedicalData_Actions_04_Providers_04_Role  Value=Referring
 Key=MedicalData_Actions_04_Providers_04_Units  Value=42
@@ -81,20 +95,6 @@ Key=MedicalData_Actions_05_ActionPlaces_03_PosCode  Value=1
 Key=MedicalData_Actions_05_ActionPlaces_03_PosOrder  Value=1
 Key=MedicalData_Actions_05_ActionPlaces_03_Duration  Value=1
 Key=MedicalData_Actions_05_ActionCode  Value=<unknown action>
-Key=MedicalData_Diagnoses_01_Primacy  Value=1
-Key=MedicalData_Diagnoses_04_Primacy  Value=111
-Key=MedicalData_Diagnoses_05_Diagnosis  Value=DX003
-Key=MedicalData_Diagnoses_05_Primacy  Value=33
-Key=MedicalData_Actions_01_ActionPlaces_03_PosOrder  Value=1
-Key=MedicalData_Actions_01_ActionPlaces_03_Duration  Value=1
-Key=MedicalData_Actions_01_ActionCode  Value=<unknown action>
-Key=MedicalData_Actions_01_Providers_02_Units  Value=3.5
-Key=MedicalData_Actions_01_Providers_04_Role  Value=Referring
-Key=MedicalData_Actions_01_Providers_04_Units  Value=42
-Key=MedicalData_Actions_02_Providers_01_Units  Value=42
-Key=MedicalData_Actions_04_Providers_03_ProviderId  Value=PROV142
-Key=MedicalData_Actions_04_Providers_03_Role  Value=Servicing
-Key=MedicalData_Actions_04_Providers_03_Units  Value=1
 Key=MedicalData_Actions_06_ActionDate  Value=10/22/2020
 Key=MedicalData_Actions_06_ActionSequence  Value=1
 Key=MedicalData_Actions_06_ActionPlaces_01_PosCode  Value=11
@@ -102,14 +102,14 @@ Key=MedicalData_Actions_06_ActionPlaces_01_PosOrder  Value=11
 Key=MedicalData_Actions_06_ActionPlaces_01_Duration  Value=11
 Key=MedicalData_Actions_06_ActionPlaces_02_PosCode  Value=1
 Key=MedicalData_Actions_06_ActionPlaces_02_PosOrder  Value=1
+Key=MedicalData_Actions_06_ActionPlaces_02_Duration  Value=1
 Key=MedicalData_Actions_06_ActionCode  Value=<unknown action>
 Key=MedicalData_Actions_06_Providers_01_ProviderId  Value=PROV052
 Key=MedicalData_Actions_06_Providers_01_Role  Value=Servicing
 Key=MedicalData_Actions_06_Providers_01_Units  Value=52
 Key=MedicalData_Actions_06_Providers_02_ProviderId  Value=PROV002
 Key=MedicalData_Actions_06_Providers_02_Role  Value=Attending
+Key=MedicalData_Actions_06_Providers_02_Units  Value=3.5
 Key=MedicalData_Actions_06_Providers_03_ProviderId  Value=PROV888
 Key=MedicalData_Actions_06_Providers_03_Role  Value=Referring
 Key=MedicalData_Actions_06_Providers_03_Units  Value=0.3
-Key=MedicalData_Actions_06_ActionPlaces_02_Duration  Value=1
-Key=MedicalData_Actions_06_Providers_02_Units  Value=3.5

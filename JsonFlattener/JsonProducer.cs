@@ -76,7 +76,7 @@ namespace JsonFlattener
          var prevKey = new Stack<LorC>();
          prevKey.Push(new LorC("dummy")); //will get removed
          foreach (var item in SortDataByKeyHierarchy(items))
-         {
+         {  // items are sorted to assure intended nesting in JSON hierarchy
             if (isArray == null)
             {
                isArray = char.IsDigit(item.Key.First());
