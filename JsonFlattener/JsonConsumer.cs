@@ -14,26 +14,6 @@ namespace JsonFlattener
    {
       private readonly JsonTextReader _jsonReader;
 
-      /// <summary>
-      /// Label or Counter: "Either" type; type of elements in stack of prefixes.
-      /// JSON object is represented on _keyPrefixes stack by Label; JSON array is represented by Label + Counter
-      /// </summary>
-      private class LorC
-      {
-         private string _label;
-         private int _counter;
-
-         public LorC(string label) { _label = label; }  // creates Label
-         public LorC() { _label = null; _counter = 1; }  // creates Counter (1-based)
-
-         public bool IsCounter => _label == null;
-         public bool IsLabel => !IsCounter;
-
-         public string Value => IsLabel ? _label : $"{_counter:D2}";
-
-         public void Increment() => _counter++;
-      }
-
       private readonly Stack<LorC> _keyPrefixes;  // elements to build column name from
       private const string _pfxSep = "_";  // separates prefixes, i.e. segments of column nams
       private string _LPN;  // last PropertyName
