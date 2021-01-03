@@ -13,15 +13,14 @@ By definition, a key-value pair (KVP) is flat or 2-dimensional; the dimiensions 
 
 JSON on the other hand is hierarchical or multi-dimensional. Every JSON an object can contain inner objects. There is no limit on the JSON nesting hierarchy.
 
-
 To facilitate translation between hierarchical JSON and flat KVP, the KVP's key must reflect
-the hierarchy of the corresponding JSON value. JsonFlattener uses the following convention.
+the hierarchy of the corresponding JSON value. JsonFlattener uses the [Path](https://www.newtonsoft.com/json/help/html/P_Newtonsoft_Json_JsonReader_Path.htm){:target="_blank"}
+property of the Newtonsoft's JsonReader (or JsonWriter) object for this purpose.
 
-The key of the KVP is compound and consists of underscore-separated segments. Each segment reflects the nesting level in the
-corresponding JSON hierarchy. Each new level can be an inner object or an array element. In case of an inner object, a JSON
-property name is used. In case of an array element, a 1-based index value is used to name the segment
-Note that index values are zero-filled 2-digit long, which limits the array size to 99 elements,
-however this convention can be extended if needed.
+The KVP's key consists of period (.) separated segment names, where each name reflects the nesting level
+in the corresponding JSON hierarchy. Each level, except for the top (last), can be an inner object or an array element. In case of an inner object, a JSON
+property name is used. In case of an array element, a property name is followed by a 0-based index inside square brackets. The top (last) segment
+simply contains the property name (posssibly with an index if an array element).
 
 As an extension of this convension, we can think of a set of key-value pairs as being 3-dimensional.
 The JSON equivalent is a JSON array where each element is a JSON object.
@@ -66,9 +65,9 @@ Key=city  Value=Chicago
 <td>
 
 ```
-Key=01  Value=John
-Key=02  Value=Susan
-Key=03  Value=Bob
+Key=[0]  Value=John
+Key=[1]  Value=Susan
+Key=[2]  Value=Bob
 ```
 </td>
 </tr><tr>
@@ -88,15 +87,15 @@ Key=03  Value=Bob
 <td>
 
 ```
-Key=01_name    Value=John
-Key=01_age     Value=30
-Key=02_name    Value=Susan
-Key=02_age     Value=24
-Key=03_name    Value=Joe
-Key=03_age     Value=42
-Key=03_kids_01 Value=Amy
-Key=03_kids_02 Value=Kate
-Key=03_kids_03 Value=Jim
+Key=[0].name  Value=John
+Key=[0].age  Value=30
+Key=[1].name  Value=Susan
+Key=[1].age  Value=24
+Key=[2].name  Value=Joe
+Key=[2].age  Value=42
+Key=[2].kids[0]  Value=Amy
+Key=[2].kids[1]  Value=Kate
+Key=[2].kids[2]  Value=Jim
 ```
 
 </td>
