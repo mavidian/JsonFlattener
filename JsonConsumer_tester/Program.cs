@@ -9,8 +9,8 @@ namespace JsonConsumer_tester
    {
       private static readonly char sep = Path.DirectorySeparatorChar;
 
-      private static readonly string _data = "TestData";
-      //private static readonly string _data = "SampleMedicalEventData";
+      //private static readonly string _data = "TestData";
+      private static readonly string _data = "SampleMedicalEventData";
 
       private static readonly bool _outputToFile = true;  // if false, detailed JSON tokens are displayed one by one on the console window
 

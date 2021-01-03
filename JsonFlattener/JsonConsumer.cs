@@ -42,10 +42,6 @@ namespace JsonFlattener
          {
             switch (_jsonReader.TokenType)
             {
-               case JsonToken.StartArray:
-               case JsonToken.StartObject:
-               case JsonToken.PropertyName:
-                  break;
                case JsonToken.String:
                case JsonToken.Integer:
                case JsonToken.Float:
@@ -54,11 +50,6 @@ namespace JsonFlattener
                case JsonToken.Undefined:  // absence of value, e.g. "MyUndefinedValue":, - technically invalid JSON, but Json.NET parses it as Undefined
                   yield return new KeyValuePair<string, object>(_jsonReader.Path, _jsonReader.Value);
                   break;
-               case JsonToken.EndObject:
-               case JsonToken.EndArray:
-                  break;
-               default:
-                  throw new InvalidDataException($"Unexpected JSON '{_jsonReader.TokenType}' token at path '{_jsonReader.Path}' with a value '{_jsonReader.Value}'.");
             }
          }
       }
