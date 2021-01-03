@@ -1,30 +1,30 @@
-Key=01_NullValue  Value=
-Key=01_TrueValue  Value=True
-Key=01_FalseValue  Value=False
-Key=01_UndefinedValue  Value=
-Key=01_SimpleArray_01  Value=John
-Key=01_SimpleArray_02  Value=Anna
-Key=01_SimpleArray_03  Value=Peter
-Key=01_SimpleObject_name  Value=John
-Key=01_SimpleObject_age  Value=30
-Key=01_SimpleObject_city  Value=New York
-Key=01_ObjectInArray_01_name  Value=John
-Key=01_ObjectInArray_01_age  Value=30
-Key=01_ObjectInArray_01_city  Value=New York
-Key=01_ObjectInArray_02_name  Value=Sue
-Key=01_ObjectInArray_02_age  Value=20
-Key=01_ObjectInArray_02_city  Value=Chicago
-Key=01_ArrayInObject_InnerArray_01  Value=John
-Key=01_ArrayInObject_InnerArray_02  Value=Anna
-Key=01_ArrayInObject_InnerArray_03  Value=Peter
-Key=01_NestedObjects_InnerObject_InnerValue  Value=value
-Key=01_NestedArray_01_01  Value=a
-Key=01_NestedArray_01_02  Value=b
-Key=01_NestedArray_02_01  Value=x
-Key=01_NestedArray_02_02  Value=y
-Key=01_NestedArray_02_03  Value=z
-Key=01_ArrayWithManyTypes_01  Value=3
-Key=01_ArrayWithManyTypes_02  Value=StringHere
-Key=01_ArrayWithManyTypes_03_ObjectThere  Value=with this string
-Key=01_ArrayWithManyTypes_03_AndNumber  Value=42
-Key=01_ArrayWithManyTypes_04  Value=True
+Key=[0].NullValue  Value=
+Key=[0].TrueValue  Value=True
+Key=[0].FalseValue  Value=False
+Key=[0].UndefinedValue  Value=
+Key=[0].SimpleArray[0]  Value=John
+Key=[0].SimpleArray[1]  Value=Anna
+Key=[0].SimpleArray[2]  Value=Peter
+Key=[0].SimpleObject.name  Value=John
+Key=[0].SimpleObject.age  Value=30
+Key=[0].SimpleObject.city  Value=New York
+Key=[0].ObjectInArray[0].name  Value=John
+Key=[0].ObjectInArray[0].age  Value=30
+Key=[0].ObjectInArray[0].city  Value=New York
+Key=[0].ObjectInArray[1].name  Value=Sue
+Key=[0].ObjectInArray[1].age  Value=20
+Key=[0].ObjectInArray[1].city  Value=Chicago
+Key=[0].ArrayInObject.InnerArray[0]  Value=John
+Key=[0].ArrayInObject.InnerArray[1]  Value=Anna
+Key=[0].ArrayInObject.InnerArray[2]  Value=Peter
+Key=[0].NestedObjects.InnerObject.InnerValue  Value=value
+Key=[0].NestedArray[0][0]  Value=a
+Key=[0].NestedArray[0][1]  Value=b
+Key=[0].NestedArray[1][0]  Value=x
+Key=[0].NestedArray[1][1]  Value=y
+Key=[0].NestedArray[1][2]  Value=z
+Key=[0].ArrayWithManyTypes[0]  Value=3
+Key=[0].ArrayWithManyTypes[1]  Value=StringHere
+Key=[0].ArrayWithManyTypes[2].ObjectThere  Value=with this string
+Key=[0].ArrayWithManyTypes[2].AndNumber  Value=42
+Key=[0].ArrayWithManyTypes[3]  Value=True
