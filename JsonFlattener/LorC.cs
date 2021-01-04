@@ -3,13 +3,15 @@
 namespace JsonFlattener
 {
    /// <summary>
-   /// Label or Counter: "Either" type; type of elements in stack of prefixes. IOW, type of segments of compound column name.
-   /// JSON object is represented on _keyPrefixes stack by Label; JSON array is represented by Label + Counter
+   /// Label or Counter: "Either" type; type of elements on stack of key segments. Counter is equivalent to array index.
+   /// JSON object is represented by a Label; JSON array element is represented by a Label and a Counter.
+   /// Cou
    /// </summary>
    internal class LorC : IEquatable<LorC>
    {
       private string _label;
       private int _counter;
+
 
       public LorC(string label) { _label = label; }  // creates Label
       public LorC() { _label = null; _counter = 1; }  // creates Counter (1-based)

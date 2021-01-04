@@ -25,7 +25,6 @@ namespace JsonFlattener
       /// </summary>
       /// <param name="items">Key-value pairs where Key reflects path to JSON element using special convention (undersore-delimited hierarchy of element names or array names with indeces). Represents a single record.</param>
       /// <returns>Sequence of resulting JSON tokens. </returns>
-      ////internal IEnumerable<(JsonToken Type, object Value)> PresentJsonTokenData(IEnumerable<(string Key, object Value)> items)
       public IEnumerable<string> PresentJsonTokenData(IEnumerable<(string Key, object Value)> items)
       {
          foreach (var item in items)
@@ -49,7 +48,7 @@ namespace JsonFlattener
          {  // items are sorted to assure intended nesting in JSON hierarchy
             if (isArray == null)
             {
-               isArray = char.IsDigit(item.Key.First());
+               isArray = item.Key.StartsWith("[");
                if ((bool)isArray) _jsonWriter.WriteStartArray(); else _jsonWriter.WriteStartObject();
             }
             var segments = SplitColumnName(item.Key);
@@ -94,7 +93,7 @@ namespace JsonFlattener
       /// <returns>A sequence of sorted key value pairs.</returns>
       public IEnumerable<(string Key, object Value)> SortDataByKeyHierarchy(IEnumerable<(string Key, object Value)> items)
       {
-         var wrappedItems = items.Select(i => (Wrapper: i.Key.Split('_'), Item: i));  // Wrapper is an array of segments of the compound Key
+         var wrappedItems = items.Select(i => (Wrapper: i.Key.Split('.','['), Item: i));  // Wrapper is an array of segments of the compound Key (note that array indices will contain closing brackets, but it doesn't matter)
          return SortWrappedData(wrappedItems).Select(wi => wi.Item);
       }
 
@@ -108,7 +107,7 @@ namespace JsonFlattener
       private IEnumerable<(string[] Wrapper, (string Key, object Value) Item)> SortWrappedData(IEnumerable<(string[] Wrapper, (string Key, object Value) Item)> wrappedItems)
       {
          var grouppedItems = wrappedItems.GroupBy(wi => wi.Wrapper[0]);
-         // Notice that segments are groupped in order of appearance. So, array elements are not sorted by index/counter.
+         // Notice that segments are groupped in order of appearance. So, array elements are not sorted by index.
          foreach (var group in grouppedItems)
          {
             if (group.Count() == 1) yield return group.First();  // end of recursion (note that compound keys are assumed to be unique)
@@ -128,12 +127,12 @@ namespace JsonFlattener
       /// <returns>A list of elements that the column name represents.</returns>
       private IEnumerable<LorC> SplitColumnName(string key)
       {
-         var items = key.Split('_');
+         var items = key.TrimStart('[').Split('.','[');  // array indices will contain closing brackets
 
          foreach (var item in items)
          {
             yield return char.IsDigit(item[0])
-                        ? new LorC(int.Parse(item))  // counter
+                        ? new LorC(int.Parse(item.TrimEnd(']')))  // counter
                         : new LorC(item);  // label
          }
       }
